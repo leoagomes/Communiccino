@@ -85,7 +85,6 @@ public class MainActivity extends Activity {
 			
 			@Override
 			public void onClick(View v) {
-				// TODO Auto-generated method stub
 				Send(sendtext.getText().toString());
 				sendtext.setText("");
 			}
@@ -96,14 +95,12 @@ public class MainActivity extends Activity {
 			
 			@Override
 			public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
-				// TODO Auto-generated method stub
 				Send(sendtext.getText().toString());
 				sendtext.setText("");
 				return false;
 			}
 		});
 		
-		//Probably FAIL
 		mUsbManager = (UsbManager) getSystemService(Context.USB_SERVICE);
 	}
 
@@ -139,7 +136,6 @@ public class MainActivity extends Activity {
 			try {
 				driver1.open();
 			} catch (IOException e1) {
-				// TODO Auto-generated catch block
 				e1.printStackTrace();
 			}
 			try {
@@ -155,7 +151,6 @@ public class MainActivity extends Activity {
 				try {
 					driver1.close();
 				} catch (IOException e) {
-					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
 			} 
@@ -179,7 +174,7 @@ public class MainActivity extends Activity {
     @Override
     protected void onResume() {
         super.onResume();
-        //Meu
+        
         SharedPreferences prefs = this.getSharedPreferences("com.LeoAGomes.Ccino", Context.MODE_PRIVATE);
 		baudrate = prefs.getInt("baudrate", 0);
 		if (baudrate == 0) {
@@ -193,7 +188,6 @@ public class MainActivity extends Activity {
 		timeout = prefs.getInt("timeout", 0);
 		buffersize = prefs.getInt("buffersize", 0);
         
-        //Cara's
         mSerialDevice = UsbSerialProber.acquire(mUsbManager);
         Log.d(TAG, "Resumed, mSerialDevice=" + mSerialDevice);
         if (mSerialDevice == null) {
